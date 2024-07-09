@@ -19,8 +19,6 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic cryptodata --create --
 ```
 Ahora bien, ahora corresponde crear el fichero dónde se va a configurar el Producer, con los datos de la API de coincap. 
 
-Para ello vamos a crear un archivo.
-```shell
-touch producer.py
-```
+Para ello vamos a crear 2 script, el de producer.py y el de consumer.py, una que extraerá los datos a traves de la API de coincap, y los enviará al topic creado. El de consumer, tomará los datos del topic y los cargará a un archivo csv. 
 
+Para la visualización y análisis de los datos, se conecta el csv a Power Bi. 
