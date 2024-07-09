@@ -21,7 +21,24 @@ while True:
     #Verifca el estatus de la conexión para traer la data
     if response.status_code == 200:
         data = response.json()
-    
+        #Verificar la estructura de la respuesta
+        if 'data' in data and isinstance(data['data'], list):
+
+            #Crear una lista de diccionarios con la información que deseamos extraer. 
+            rows = [{'timestamp': int(time.time()), 'name': crypto['name'], 'symbol': crypto['symbol'], 'price': crypto['priceUsd']} for crypto in data['data'] if crypto['id'] in cryptos_to_track]
+
+            #Enviar los datos extraidos a Kafka
+            for row in rows:
+                producer.produce(topic_name, value=json.dumps(row))
+            
+            #Asegurarnos que se está enviando toda la info
+            producer.flush()
+
+            print("Datos enviados exitosamente a Kafka")
+
+        else:
+            print('La estructura de la respuesta no es la esperada')
+
     else:
         print(f"Error al realizar la solicitud a la API. Código de estado: {response.status_code}")
 
