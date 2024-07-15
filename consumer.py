@@ -1,7 +1,7 @@
 from confluent_kafka import Consumer
 import csv
 import json
-import datetime
+import time
 
 #Cofigurar el consumer de Kafka
 topic_name='cryptodata'
@@ -42,7 +42,7 @@ with open(csv_file_path, 'a', newline='') as csv_file:
             writer.writerow(row)
             
             #cargar datos a base de datos
-            ref = db.reference("https://bi-realtime-default-rtdb.firebaseio.com/crypto")
+            ref = db.reference("https://bi-realtime-default-rtdb.firebaseio.com")
             ref.set(row)
 
             print(f"Datos recibidos y escritos en {csv_file_path}")

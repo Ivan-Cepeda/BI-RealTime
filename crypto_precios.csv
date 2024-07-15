@@ -62,3 +62,8 @@ timestamp,name,symbol,price
 1720549236,Litecoin,LTC,65.7518056374968933
 1720549236,Stellar,XLM,0.0877876958479285
 1720549236,EOS,EOS,0.5208397535654643
+"time.struct_time(tm_year=2024, tm_mon=7, tm_mday=14, tm_hour=20, tm_min=51, tm_sec=17, tm_wday=6, tm_yday=196, tm_isdst=0)",Bitcoin,BTC,61150.0090826811760314
+"time.struct_time(tm_year=2024, tm_mon=7, tm_mday=14, tm_hour=20, tm_min=51, tm_sec=17, tm_wday=6, tm_yday=196, tm_isdst=0)",Ethereum,ETH,3277.0980086814822496
+"time.struct_time(tm_year=2024, tm_mon=7, tm_mday=14, tm_hour=20, tm_min=51, tm_sec=17, tm_wday=6, tm_yday=196, tm_isdst=0)",Dogecoin,DOGE,0.1159845675404526
+"time.struct_time(tm_year=2024, tm_mon=7, tm_mday=14, tm_hour=20, tm_min=51, tm_sec=17, tm_wday=6, tm_yday=196, tm_isdst=0)",Cardano,ADA,0.4356045694047085
+"time.struct_time(tm_year=2024, tm_mon=7, tm_mday=14, tm_hour=20, tm_min=51, tm_sec=17, tm_wday=6, tm_yday=196, tm_isdst=0)",TRON,TRX,0.1381609045730410
