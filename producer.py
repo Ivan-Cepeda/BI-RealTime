@@ -2,11 +2,11 @@
 from confluent_kafka import Producer
 import requests
 import json
-import time
+import datetime
 
 #cryptos para seguir y analizar.
 cryptos_to_track = ['bitcoin', 'ethereum', 'ripple', 'litecoin', 'cardano', 'polkadot', 'stellar', 'eos', 'tron', 'dogecoin']
-
+fecha_hora_actual = datetime.datetime.now()
 #URL de la API de coincap
 api_url = 'https://api.coincap.io/v2/assets'
 
@@ -25,7 +25,7 @@ while True:
         if 'data' in data and isinstance(data['data'], list):
 
             #Crear una lista de diccionarios con la información que deseamos extraer. 
-            rows = [{'timestamp': int(time.time()), 'name': crypto['name'], 'symbol': crypto['symbol'], 'price': crypto['priceUsd']} for crypto in data['data'] if crypto['id'] in cryptos_to_track]
+            rows = [{'date': fecha_hora_actual, 'name': crypto['name'], 'symbol': crypto['symbol'], 'price': crypto['priceUsd']} for crypto in data['data'] if crypto['id'] in cryptos_to_track]
 
             #Enviar los datos extraidos a Kafka
             for row in rows:
